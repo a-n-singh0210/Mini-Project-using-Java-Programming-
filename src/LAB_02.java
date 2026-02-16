@@ -1,4 +1,4 @@
-// Base Class
+// base
 class Employee {
     protected String name;
     protected double salary;
@@ -14,7 +14,7 @@ class Employee {
     }
 }
 
-// Derived Class 1
+// deri 1
 class FullTimeEmployee extends Employee {
 
     FullTimeEmployee(String name, double salary) {
@@ -26,7 +26,7 @@ class FullTimeEmployee extends Employee {
     }
 }
 
-// Derived Class 2
+// deri 2
 class InternEmployee extends Employee {
 
     InternEmployee(String name, double salary) {
@@ -38,7 +38,6 @@ class InternEmployee extends Employee {
     }
 }
 
-// Only ONE public class
 public class LAB_02 {
     public static void main(String[] args) {
 
