@@ -48,7 +48,7 @@ public class LAB_02 {
         System.out.println("After 50% Hike:");
         f1.displaySalary();
 
-        System.out.println("------------------");
+        
 
         InternEmployee i1 = new InternEmployee("Rahul", 20000);
         System.out.println("Before Hike (Intern):");
