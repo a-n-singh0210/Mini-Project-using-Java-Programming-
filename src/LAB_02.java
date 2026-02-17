@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 // base
 class Employee {
     protected String name;
@@ -22,7 +24,7 @@ class FullTimeEmployee extends Employee {
     }
 
     public void calculateSalary() {
-        salary += salary * 0.50;
+        salary += salary * 0.50;  // 50% hike
     }
 }
 
@@ -34,27 +36,56 @@ class InternEmployee extends Employee {
     }
 
     public void calculateSalary() {
-        salary += salary * 0.25;
+        salary += salary * 0.25;  // 25% hike
     }
 }
 
 public class LAB_02 {
     public static void main(String[] args) {
 
-        FullTimeEmployee f1 = new FullTimeEmployee("Aarushi", 40000);
-        System.out.println("Before Hike (FullTime):");
-        f1.displaySalary();
-        f1.calculateSalary();
-        System.out.println("After 50% Hike:");
-        f1.displaySalary();
+        Scanner sc = new Scanner(System.in);
+        char choice;
 
-        System.out.println("\n");
+        do {
+            System.out.println("\nSelect Employee Type:");
+            System.out.println("1. Full Time Employee");
+            System.out.println("2. Intern Employee");
+            System.out.print("Enter choice (1 or 2): ");
+            int type = sc.nextInt();
+            sc.nextLine(); //buffer clear karne ke liye ?
 
-        InternEmployee i1 = new InternEmployee("Rahul", 20000);
-        System.out.println("Before Hike (Intern):");
-        i1.displaySalary();
-        i1.calculateSalary();
-        System.out.println("After 25% Hike:");
-        i1.displaySalary();
+            System.out.print("Enter Employee Name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter Salary: ");
+            double salary = sc.nextDouble();
+
+            if (type == 1) {
+                FullTimeEmployee emp = new FullTimeEmployee(name, salary);
+                System.out.println("\nBefore Hike:");
+                emp.displaySalary();
+                emp.calculateSalary();
+                System.out.println("After 50% Hike:");
+                emp.displaySalary();
+
+            } else if (type == 2) {
+                InternEmployee emp = new InternEmployee(name, salary);
+                System.out.println("\nBefore Hike:");
+                emp.displaySalary();
+                emp.calculateSalary();
+                System.out.println("After 25% Hike:");
+                emp.displaySalary();
+
+            } else {
+                System.out.println("Invalid choice!");
+            }
+
+            System.out.print("\nDo you want to enter another employee? (y/n): ");
+            choice = sc.next().charAt(0);
+            sc.nextLine();
+
+        } while (choice == 'y' || choice == 'Y');
+
+        sc.close();
     }
 }
