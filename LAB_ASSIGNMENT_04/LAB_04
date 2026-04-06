@@ -63,7 +63,7 @@ class Bank
 
         int ch;
         try {
-            new FileWriter("bank.txt", false).close(); //taaki overwrite na ho harr baar open karne par
+            new FileWriter("bank.txt", false).close(); //taaki clear ho file records. false-> overwrite
         } catch (IOException e) {
             System.out.println("File error: " + e.getMessage());
         }
