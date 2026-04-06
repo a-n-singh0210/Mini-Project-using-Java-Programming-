@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+class Hillstation {
+    void famousfood() {
+        System.out.println("General hill station food");
+    }
+
+    void famousfor() {
+        System.out.println("Known for scenic beauty");
+    }
+}
+
+class Manali extends Hillstation {
+    void famousfood() {
+        System.out.println("Manali Famous Food: Siddu");
+    }
+
+    void famousfor() {
+        System.out.println("Manali Famous For: Snow & Mountains");
+    }
+}
+
+class Mussoorie extends Hillstation {
+    void famousfood() {
+        System.out.println("Mussoorie Famous Food: Momos");
+    }
+
+    void famousfor() {
+        System.out.println("Mussoorie Famous For: Hills & Waterfalls");
+    }
+}
+
+class Ooty extends Hillstation {
+    void famousfood() {
+        System.out.println("Ooty Famous Food: Chocolates");
+    }
+
+    void famousfor() {
+        System.out.println("Ooty Famous For: Tea Gardens");
+    }
+}
+
+public class LAB_03_02 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+        char repeat = 'y';
+
+        do {
+            System.out.println("\nChoose Hill Station:");
+            System.out.println("1. Manali  2. Mussoorie  3. Ooty");
+
+            choice = sc.nextInt();
+
+            Hillstation h;
+
+            if (choice == 1)
+                h = new Manali();
+            else if (choice == 2)
+                h = new Mussoorie();
+            else if (choice == 3)
+                h = new Ooty();
+            else {
+                System.out.println("Invalid choice");
+                continue;
+            }
+
+            h.famousfood();
+            h.famousfor();
+
+            System.out.println("\nDo you want to continue? (y/n)");
+            repeat = sc.next().charAt(0);
+
+        } while (repeat == 'y' || repeat == 'Y');
+
+        System.out.println("Program Ended.");
+    }
+}
